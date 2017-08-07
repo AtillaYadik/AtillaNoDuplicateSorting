@@ -12,9 +12,6 @@ function AtillaNoDuplicateSorting(numbers) {
             //arr.push(tmp);
             collection[tmp] = [tmp];
         }
-        else {
-            collection[tmp].push(tmp);
-        }
     }
     //return collection;
     let sortedArr = [];
