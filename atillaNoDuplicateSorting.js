@@ -17,10 +17,7 @@ function AtillaNoDuplicateSorting(numbers) {
     let sortedArr = [];
     for(let i = 0; i <collection.length; i++) {
         if(collection[i]) {
-            let inArray = collection[i];
-            for(let ii = 0; ii<inArray.length; ii++) {
-                sortedArr.push(inArray[ii]);
-            }
+            sortedArr.push(collection[i]);
         }
     }
 
