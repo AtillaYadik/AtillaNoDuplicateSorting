@@ -17,4 +17,4 @@ I would really appreciate your input regarding the project.
 
 Please checkout the C# version. Give me feedback please.
 
-[AtillaNoDuplicateSorting](https://github.com/AtillaYadik/MySortCSharp)
+[MySortCSharp](https://github.com/AtillaYadik/MySortCSharp)
