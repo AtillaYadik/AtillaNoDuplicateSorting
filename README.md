@@ -1,10 +1,20 @@
 "# AtillaNoDuplicateSorting"
 
-Sorting algorithm without comparison. This is a unique way of looking at sorting and solving it.
-This is a sorting algorithm without duplicate numbers.
 
- I am using the JS array's indexing property to sort and remove duplicate numbers.
+The new way of sorting.
 
- I have also written a code using the same system just to sort it with duplicate numbers. It is not as fast as removing duplicate numbers.
- I am working on it to make it as fast as removing duplicate numbers or getting it to be as fast as any other sorting functions that are being used already.
+This is not a perfect sorting algorithm in any way shape of form. But, 
+it does provide really fast sorting for big data. I am working on improving it for each cases.
+It does sorting without comparing the numbers to each other. It is very unique and it is very close to 
+the way we, as humans, do it in our head.
+I will update my latest code soon.
 
+## Please support me on this.
+
+I would really appreciate your input regarding the project. 
+
+## I have the same project in C# as well
+
+Please checkout the C# version. Give me feedback please.
+
+[AtillaNoDuplicateSorting](https://github.com/AtillaYadik/MySortCSharp)
