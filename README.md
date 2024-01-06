@@ -18,3 +18,5 @@ I would really appreciate your input regarding the project.
 Please checkout the C# version. Give me feedback please.
 
 [MySortCSharp](https://github.com/AtillaYadik/MySortCSharp)
+
+![GitHub All Releases](https://img.shields.io/github/downloads/lewdev/hw-gen/total)
