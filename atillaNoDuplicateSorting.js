@@ -3,8 +3,10 @@
  */
 function AtillaNoDuplicateSorting(numbers) {
   let collection = [];
+  let minNumber = 0;
   for (let ni = 0; ni < numbers.length; ni++) {
     let tmp = numbers[ni];
+    if (minNumber > tmp) minNumber = tmp;
     //console.log("Tmp number in distinct ----",tmp);
     //console.log("If condition in distinct --", !nNumbers[tmp]);
     if (!collection[tmp]) {
@@ -15,7 +17,7 @@ function AtillaNoDuplicateSorting(numbers) {
   }
   //return collection;
   let sortedArr = [];
-  for (let i = 0; i < collection.length; i++) {
+  for (let i = minNumber; i < collection.length; i++) {
     if (collection[i]) {
       sortedArr.push(collection[i]);
     }
@@ -122,7 +124,7 @@ function generateRandomNumbersByquantityAndMax(quantity, max, min) {
   return arr;
 }
 
-let numbers = generateRandomNumbersByquantityAndMax(1000000, 100000, 10);
+let numbers = generateRandomNumbersByquantityAndMax(1000000, 1000000, 1000);
 
 console.time('quick sorting');
 let quickSortsorted = quickSort(numbers, 0, numbers.length - 1);
