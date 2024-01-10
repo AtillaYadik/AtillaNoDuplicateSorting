@@ -3,7 +3,7 @@
  */
 function AtillaNoDuplicateSorting(numbers) {
   let collection = [];
-  let minNumber = 1000;
+  let minNumber = 100000;
   for (let ni = 0; ni < numbers.length; ni++) {
     let tmp = numbers[ni];
     //console.log(`tmp is ${tmp}`);
