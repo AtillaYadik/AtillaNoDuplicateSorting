@@ -6,7 +6,11 @@ function AtillaNoDuplicateSorting(numbers) {
   let minNumber = 0;
   for (let ni = 0; ni < numbers.length; ni++) {
     let tmp = numbers[ni];
-    if (minNumber > tmp) minNumber = tmp;
+
+    if (tmp > 0 && minNumber > tmp) {
+      minNumber = tmp;
+      console.log(`min number is ${minNumber}`);
+    }
     //console.log("Tmp number in distinct ----",tmp);
     //console.log("If condition in distinct --", !nNumbers[tmp]);
     if (!collection[tmp]) {
@@ -130,6 +134,8 @@ console.time('quick sorting');
 let quickSortsorted = quickSort(numbers, 0, numbers.length - 1);
 console.timeLog('quick sorting');
 console.timeEnd('quick sorting');
+
+console.log('sorted', quickSortsorted.length);
 
 // console.log(numbers);
 console.log(numbers.length);
