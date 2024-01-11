@@ -135,12 +135,12 @@ console.dir(`numbers is ${numbers}`);
 
 // console.log(numbers.length);
 
-// console.time('quick sorting');
-// let quickSortsorted = quickSort(numbers, 0, numbers.length - 1);
-// console.timeLog('quick sorting');
-// console.timeEnd('quick sorting');
+console.time('quick sorting');
+let quickSortsorted = quickSort(numbers, 0, numbers.length - 1);
+console.timeLog('quick sorting');
+console.timeEnd('quick sorting');
 
-// console.log('sorted', quickSortsorted.length);
+console.log('sorted', quickSortsorted.length);
 
 // console.dir(`numbers is ${numbers}`);
 // numbers = generateRandomNumbersByquantityAndMax(1000000, 1000000, 10000);
