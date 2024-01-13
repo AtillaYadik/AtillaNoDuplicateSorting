@@ -1,10 +1,21 @@
 /**
  * Created by ZeroInfinity on 8/6/2017.
  */
+
 function AtillaNoDuplicateSorting(numbers) {
   let collection = [];
   let minNumber;
-  for (let ni = 0; ni < numbers.length; ni++) {
+  let middle = Math.floor((numbers.length - 1) / 2);
+  let quarter = Math.floor((middle - 1) / 2);
+  let third = middle + quarter;
+
+  console.log(`middle numbers is ${middle}`);
+  console.log(`middle numbers is ${quarter}`);
+  console.log(`middle numbers is ${third}`);
+  // first iter is
+  console.log('First Loop');
+
+  for (let ni = 0; ni < quarter; ni++) {
     let tmp = numbers[ni];
     //console.log(`tmp is ${tmp}`);
     if (tmp > 0 && !minNumber) {
@@ -13,13 +24,38 @@ function AtillaNoDuplicateSorting(numbers) {
       minNumber = tmp;
       //console.log(`min number is ${minNumber}`);
     }
+    collection[tmp] = tmp;
+  }
+
+  for (let ni = quarter; ni < middle; ni++) {
+    let tmp = numbers[ni];
+    //console.log(`tmp is ${tmp}`);
+    if (tmp > 0 && !minNumber) {
+      minNumber = tmp;
+    } else if (tmp > 0 && minNumber > tmp) {
+      minNumber = tmp;
+      //console.log(`min number is ${minNumber}`);
+    }
+    collection[tmp] = tmp;
+  }
+  for (let ni = middle; ni < numbers.length; ni++) {
+    let tmp = numbers[ni];
+    //console.log(`tmp is ${tmp}`);
+    if (tmp > 0 && !minNumber) {
+      minNumber = tmp;
+    } else if (tmp > 0 && minNumber > tmp) {
+      minNumber = tmp;
+      //console.log(`min number is ${minNumber}`);
+    }
+
     //console.log("Tmp number in distinct ----",tmp);
     //console.log("If condition in distinct --", !nNumbers[tmp]);
     //let arr = [];
     //arr.push(tmp);
     collection[tmp] = tmp;
   }
-  //return collection;
+
+  return collection;
   let sortedArr = [];
   //  let sortedArrSet = new Set(collection);
   for (let i = minNumber; i < collection.length; i++) {
@@ -131,21 +167,22 @@ function generateRandomNumbersByquantityAndMax(quantity, max, min) {
 }
 
 let numbers = generateRandomNumbersByquantityAndMax(1000000, 1000000, 90000);
+let numbers2 = [...numbers];
 console.dir(`numbers is ${numbers}`);
 
-// console.log(numbers.length);
+console.dir(`numbers2 is ${numbers2}`);
+console.log(numbers.length);
 
 console.time('quick sorting');
 let quickSortsorted = quickSort(numbers, 0, numbers.length - 1);
 console.timeLog('quick sorting');
 console.timeEnd('quick sorting');
-
-console.log('sorted', quickSortsorted.length);
+console.log('quick sorted', quickSortsorted.length);
 
 // console.dir(`numbers is ${numbers}`);
-// numbers = generateRandomNumbersByquantityAndMax(1000000, 1000000, 10000);
+numbers = generateRandomNumbersByquantityAndMax(1000000, 1000000, 10000);
 console.time('sorting');
-let sorted = AtillaNoDuplicateSorting(numbers);
+let sorted = AtillaNoDuplicateSorting(numbers2);
 console.timeLog('sorting');
 console.timeEnd('sorting');
 console.log('sorted', sorted.length);
