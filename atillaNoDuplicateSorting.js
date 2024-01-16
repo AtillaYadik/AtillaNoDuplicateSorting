@@ -50,7 +50,7 @@ function AtillaNoDuplicateSorting(numbers) {
     collection[tmp] = tmp;
   }
 
-  return collection;
+  // return collection;
   let sortedArr = [];
   //  let sortedArrSet = new Set(collection);
   //for (let i = minNumber; i < collection.length; i++) {
@@ -74,23 +74,10 @@ function generateRandomNumbersByquantityAndMax(quantity, max, min) {
   return arr;
 }
 
-let numbers = generateRandomNumbersByquantityAndMax(1000000, 1000000, 90000);
-let numbers2 = [...numbers];
-// console.dir(`numbers is ${numbers}`);
+let numbers = generateRandomNumbersByquantityAndMax(1000000, 1000000, 900000);
 
-// console.dir(`numbers2 is ${numbers2}`);
-// console.log(numbers.length);
-
-// console.time('quick sorting');
-// let quickSortsorted = quickSort(numbers, 0, numbers.length - 1);
-// console.timeLog('quick sorting');
-// console.timeEnd('quick sorting');
-// console.log('quick sorted', quickSortsorted.length);
-
-// console.dir(`numbers is ${numbers}`);
-//  numbers = generateRandomNumbersByquantityAndMax(1000000, 1000000, 10000);
 console.time('sorting');
-let sorted = AtillaNoDuplicateSorting(numbers2);
+let sorted = AtillaNoDuplicateSorting(numbers);
 console.timeLog('sorting');
 console.timeEnd('sorting');
 console.log('sorted', sorted.length);
