@@ -66,6 +66,7 @@ function AtillaNoDuplicateSorting(numbers) {
 
 function generateRandomNumbersByquantityAndMax(quantity, max, min) {
   const arr = [];
+  
   while (arr.length < quantity) {
     var candiateInt = Math.floor(Math.random() * (max - min) + min);
     arr.push(candiateInt);
