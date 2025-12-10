@@ -2,66 +2,48 @@
  * Created by ZeroInfinity on 8/6/2017.
  */
 
-function AtillaNoDuplicateSorting(numbers) {
-  let collection = [];
-  let minNumber;
-  let middle = Math.floor((numbers.length - 1) / 2) + 1;
-  let quarter = Math.floor((middle - 1) / 2) + 1;
-  let third = middle + quarter;
+function AtillaNoDuplicateSorting(arr) {
+  if (!arr.length) return [];
 
-  for (let ni = 0; ni < quarter; ni++) {
-    let tmp = numbers[ni];
-    //console.log(`tmp is ${tmp}`);
-    if (tmp > 0 && !minNumber) {
-      minNumber = tmp;
-    } else if (tmp > 0 && minNumber > tmp) {
-      minNumber = tmp;
-      //console.log(`min number is ${minNumber}`);
+  // Ensure all are integers
+  // (could throw instead of silently converting)
+  const ints = arr.map(n => {
+    if (!Number.isInteger(n)) {
+      throw new TypeError("Only integers are supported");
     }
-    collection[tmp] = tmp;
-  }
-
-  for (let ni = quarter; ni < middle; ni++) {
-    let tmp = numbers[ni];
-    //console.log(`tmp is ${tmp}`);
-    if (tmp > 0 && !minNumber) {
-      minNumber = tmp;
-    } else if (tmp > 0 && minNumber > tmp) {
-      minNumber = tmp;
-      //console.log(`min number is ${minNumber}`);
-    }
-    collection[tmp] = tmp;
-  }
-
-  for (let ni = middle; ni < numbers.length; ni++) {
-    let tmp = numbers[ni];
-    //console.log(`tmp is ${tmp}`);
-    if (tmp > 0 && !minNumber) {
-      minNumber = tmp;
-    } else if (tmp > 0 && minNumber > tmp) {
-      minNumber = tmp;
-      //console.log(`min number is ${minNumber}`);
-    }
-
-    //console.log("Tmp number in distinct ----",tmp);
-    //console.log("If condition in distinct --", !nNumbers[tmp]);
-    //let arr = [];
-    //arr.push(tmp);
-    collection[tmp] = tmp;
-  }
-
-  // return collection;
-  let sortedArr = [];
-  //  let sortedArrSet = new Set(collection);
-  //for (let i = minNumber; i < collection.length; i++) {
-
-  collection.forEach((i) => {
-    if (collection[i]) {
-      sortedArr.push(collection[i]);
-    }
+    return n;
   });
-  // console.log(`minNumber is ${minNumber}`);
-  return sortedArr;
+
+  let min = Infinity;
+  let max = -Infinity;
+  for (const v of ints) {
+    if (v < min) min = v;
+    if (v > max) max = v;
+  }
+
+  const k = max - min + 1;
+
+  // Bail out to normal sort if range is too big relative to n
+  if (k > ints.length * 10) {
+    // fallback: unique + sort
+    return [...new Set(ints)].sort((a, b) => a - b);
+  }
+
+  const buckets = new Array(k);
+
+  for (const v of ints) {
+    const idx = v - min;
+    buckets[idx] = v; // dedupe
+  }
+
+  const result = [];
+  for (let i = 0; i < k; i++) {
+    if (buckets[i] !== undefined) {
+      result.push(buckets[i]);
+    }
+  }
+
+  return result;
 }
 
 function generateRandomNumbersByquantityAndMax(quantity, max, min) {
